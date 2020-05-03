@@ -1,0 +1,24 @@
+{
+  "name": "pipeline-operator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.js --out-file build/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-pipeline-operator": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "@types/node": "^13.13.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0-rc.0"
+  },
+  "dependencies": {
+    "@babel/node": "^7.8.7",
+    "immer": "^6.0.3",
+    "ramda": "^0.27.0",
+    "standard": "^14.3.3"
+  }
+}

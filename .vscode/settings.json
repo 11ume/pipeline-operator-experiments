@@ -1,0 +1,8 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "tslint.jsEnable": false,
+    "javascript.validate.enable": false,
+    "eslint.enable": true
+}
