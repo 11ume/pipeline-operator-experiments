@@ -1,40 +1,28 @@
-import * as R from 'ramda'
-
-const regionNames = (locales, date, opts = {
-    weekday: 'long'
-}) => new Intl.DateTimeFormat(locales, opts).format(date)
-
 const print = (msg) => console.log(msg)
-
-const getDay = (locales) => (date) => ({
+const regionNames = (locales, date, opts) => new Intl.DateTimeFormat(locales, opts).format(date)
+const getDay = (locales, opts) => (date) => ({
     number: date.getDay()
-    , locale: regionNames(locales, date)
+    , locale: regionNames(locales, date, opts)
 })
 
-const setEmoji = (emotions) => (dayNumber) => emotions[dayNumber] ?? '🤷🏻‍♂️'
-const setDayLocale = R.curry(R.compose(
-    R.join(''),
-    R.juxt([R.compose(R.toUpper, R.head), R.tail])
-))
-
-const exclaim = R.curry(R.compose(
-    R.join(''),
-    R.append('!')))
+const exclaim = (str) => `${str}!`
+const addEmoji = (emotions) => (dayNumber) => emotions[dayNumber] ?? '🤷🏻‍♂️'
+const prop = (p) => (obj) => obj[p]
+const merge = (...str) => str.flat(str).join(' ')
 
 const day = new Date()
-    |> getDay('es')
+    |> getDay('es', {
+        weekday: 'long'
+    })
 
 const message = day
-    |> R.prop('locale')
-    |> setDayLocale
+    |> prop('locale')
     |> exclaim
 
 const emoji = day
-    |> R.prop('number')
-    |> setEmoji(['😃', '😑', '🙂', '🙃', '😊', '😁'])
+    |> prop('number')
+    |> addEmoji(['😃', '😑', '🙂', '🙃', '😊', '😁'])
 
-R
-    .append(message, emoji)
-    .join('')
+merge(message, emoji)
     |> print
 
