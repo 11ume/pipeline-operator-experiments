@@ -9,16 +9,16 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.8.3",
     "@babel/plugin-proposal-pipeline-operator": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "@types/node": "^13.13.4",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0-rc.0"
+    "babel-eslint": "^11.0.0-beta.2",
+    "eslint": "^7.0.0-rc.0",
+    "standard": "^14.3.3"
   },
   "dependencies": {
-    "@babel/node": "^7.8.7",
-    "immer": "^6.0.3",
-    "ramda": "^0.27.0",
-    "standard": "^14.3.3"
+    "ramda": "^0.27.0"
   }
 }

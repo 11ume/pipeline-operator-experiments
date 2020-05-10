@@ -1,20 +1,36 @@
-const createUser = ({ name, active = false }) => ({
-    name
-    , active
-})
+import * as R from 'ramda'
 
-const capitalizeName = ({ name }) => name.charAt(0).toUpperCase() + name.slice(1)
-const writeMessage = (name) => `${name}!`
-const greet = (userName) => `Hello Im ${userName}`
-// eslint-disable-next-line no-console
-const print = (msg) => console.log(msg)
+const print = (str) => console.log(str)
+const devices = [
+    {
+        id: 'avbe3'
+        , brand: 'iphone'
+        , type: 'phone'
+        , model: '11'
+        , alias: undefined
+    }
+    , {
+        id: 'xsbe5'
+        , brand: 'xiaomi'
+        , type: 'phone'
+        , model: 'note 8'
+        , alias: undefined
+    }
+]
 
-const horacio = createUser({
-    name: 'horacio'
-})
+const getDevice = (devs) => devs |> R.find(R.where({
+    brand: R.equals('iphone')
+}))
 
-horacio
-    |> writeMessage
-    |> capitalizeName
-    |> greet
+const setAlias = (device) => {
+    const d = R.clone(device)
+    d.alias ??= 'cool'
+    return d
+}
+
+devices
+    |> getDevice
+    |> setAlias
+    |> R.prop('alias')
+    |> R.toUpper
     |> print
