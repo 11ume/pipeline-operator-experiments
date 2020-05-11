@@ -70,3 +70,12 @@ fetchDataSafe(e).then(console.log).catch(console.error)
 //         .then(handleUserDataSucces)
 //         .catch(handleUserDataError)
 // }
+
+// const whatDayIsToday = ({ dayNumber, dayLocale }) => ({
+//     0: () => createDayMessage(dayLocale, '😃')
+//     , 1: () => createDayMessage(dayLocale, '😑')
+//     , 3: () => createDayMessage(dayLocale, '🙂')
+//     , 4: () => createDayMessage(dayLocale, '🙃')
+//     , 5: () => createDayMessage(dayLocale, '😊')
+//     , 6: () => createDayMessage(dayLocale, '😁')
+// })[dayNumber]?.() ?? '🤷🏻‍♂️'
