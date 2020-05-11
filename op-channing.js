@@ -1,8 +1,8 @@
-const getIntlLocale = (date, opts) => new Intl.DateTimeFormat('default', opts).format(date)
-const getDay = (opts) => (date) => {
+const getIntlLocale = (date, locale, opts) => new Intl.DateTimeFormat(locale, opts).format(date)
+const getDay = (locale, opts) => (date) => {
     return {
         number: date.getDay()
-        , locale: getIntlLocale(date, opts)
+        , locale: getIntlLocale(date, locale, opts)
     }
 }
 
@@ -11,20 +11,23 @@ const print = (msg) => console.log(msg)
 const merge = (...str) => str.flat(str)
 const space = (str) => str.join(' ')
 const exclaim = (str) => `${str}!`
-const addEmoji = (emotions) => (dayNumber) => emotions[dayNumber] ?? '🤷🏻‍♂️'
+const capitalice = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+const addEmoji = (emotions) => (index) => emotions[index] ?? '🤷🏻‍♂️'
 
+const emojis = ['😃', '😑', '🙂', '🙃', '😊', '😁']
 const day = new Date()
-    |> getDay({
+    |> getDay('es', {
         weekday: 'long'
     })
 
 const message = day
     |> prop('locale')
+    |> capitalice
     |> exclaim
 
 const emoji = day
     |> prop('number')
-    |> addEmoji(['😃', '😑', '🙂', '🙃', '😊', '😁'])
+    |> addEmoji(emojis)
 
 merge(message, emoji)
     |> space
