@@ -12,6 +12,7 @@
         "no-unused-expressions": 0,
         "no-prototype-builtins": 0,
         "no-async-promise-executor": 0,
+        "promise/param-names": 0,
         "no-console": 0,
         "no-shadow": "error",
         "prefer-const": "error",
