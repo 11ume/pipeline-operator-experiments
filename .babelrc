@@ -1,5 +1,6 @@
 {
     "sourceMaps": "inline",
+    "retainLines": true,
     "presets": [
         [
             "@babel/preset-env"
@@ -8,9 +9,8 @@
     "plugins": [
         [
             "@babel/plugin-proposal-logical-assignment-operators"
-        ]
-        , [
-            
+        ],
+        [
             "@babel/plugin-proposal-pipeline-operator",
             {
                 "proposal": "minimal"
